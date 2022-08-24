@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43765846, g: 0.4854715, b: 0.5663157, a: 1}
+  m_IndirectSpecularColor: {r: 0.44012418, g: 0.48864293, b: 0.5688296, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -977,9 +977,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7ccec3150fa2b4f9fafebd1f75361a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Game: {fileID: 1647524575}
-  _audionyam: {fileID: 625272500}
   _snake: {fileID: 1044106587}
+  _game: {fileID: 1647524575}
 --- !u!82 &625272500
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1915,9 +1914,9 @@ MonoBehaviour:
   _speed: 1
   _speedR: 0.05
   SnakeHead: {fileID: 625272497}
-  _segment: []
+  Segment: []
   _segmentsSprigness: 12
-  _tailSize: 30
+  _startTailSize: 30
   _textScoreCount: {fileID: 1028874568}
   _textBestScore: {fileID: 1579078787}
   Game: {fileID: 1647524575}

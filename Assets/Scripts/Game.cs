@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -30,11 +28,10 @@ public class Game : MonoBehaviour
         CurrentState = State.Lose;
         _audioSource.Stop();
         //_head.enabled = false;
-        Debug.Log("Game over!");
+        Debug.Log("_game over!");
         Level.SetActive(false);
         LoseScreen.SetActive(true);
         _snake.ScoreCount = 0;
-
     }
 
     public void OnSnakeReachedFinish()
@@ -50,7 +47,9 @@ public class Game : MonoBehaviour
         WinScreen.SetActive(true);
         _textPassedLevel.text = ($"Level {LevelIndex.ToString()} passed");
         _textScore.text = ($"Score: {_snake.ScoreCount}");
-        _snake.TailSize();
+
+
+        PlayerPrefs.SetInt("SaveTailSize", _snake.Segment.Count);
     }
 
     public int LevelIndex
@@ -58,8 +57,9 @@ public class Game : MonoBehaviour
         get => PlayerPrefs.GetInt("LevelIndex", 0);
         private set
         {
-            PlayerPrefs.SetInt(LevelIndexKey, value);
-            PlayerPrefs.Save();
+            PlayerPrefs.SetInt("LevelIndex", value);
+            //    PlayerPrefs.SetInt(LevelIndexKey, value);
+            //    PlayerPrefs.Save();
         }
     }
 

@@ -9,9 +9,11 @@ public class Finish : MonoBehaviour
 
         if (other.TryGetComponent(out SnakeHead _head))
         {
+            PlayerPrefs.SetInt("SaveTailSize", _head.gameObject.GetComponentInParent<Snake>().StartTailSize);
             _confetti.Play();
             Debug.Log("WON");
             _head.ReachFinish();
+           
         }
         
             
