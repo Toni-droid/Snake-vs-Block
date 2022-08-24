@@ -12,7 +12,9 @@ public class Game : MonoBehaviour
     [SerializeField] private Text _textPassedLevel;
     [SerializeField] private Text _textScore;
     [SerializeField] private AudioSource _audioSource;
-    
+    [SerializeField] private AudioSource _audioFanfare;
+    [SerializeField] private AudioSource _audioLose;
+
     public enum State
     {
         Playing,
@@ -27,10 +29,11 @@ public class Game : MonoBehaviour
         if (CurrentState != State.Playing) return;
         CurrentState = State.Lose;
         _audioSource.Stop();
-        //_head.enabled = false;
+        
         Debug.Log("_game over!");
         Level.SetActive(false);
         LoseScreen.SetActive(true);
+        _audioLose.Play();
         _snake.ScoreCount = 0;
     }
 
@@ -41,10 +44,10 @@ public class Game : MonoBehaviour
         CurrentState = State.Won;
         _snake.enabled = false;
         _head.enabled = false;
-        Debug.Log("WON!");
         LevelIndex++;
         Level.SetActive(false);
         WinScreen.SetActive(true);
+        _audioFanfare.Play();
         _textPassedLevel.text = ($"Level {LevelIndex.ToString()} passed");
         _textScore.text = ($"Score: {_snake.ScoreCount}");
 

@@ -8,21 +8,17 @@ public class Snake : MonoBehaviour
 {
     [SerializeField] private SnakeHead _head;
     [SerializeField] float _speed, _speedR;
-    private Vector3 _previosMousePosition;
     [SerializeField] private Transform SnakeHead;
-    public List<Segment> Segment;
-    private SnakeGenerator _snakeGenerator;
     [SerializeField] private float _segmentsSprigness;
-    
-    public int StartTailSize;
-
     [SerializeField] private Text _textScoreCount, _textBestScore;
-    
+    [SerializeField] private SnakeGenerator _snakeGenerator;
+    [SerializeField] private Game Game;
+    private Vector3 _previosMousePosition;
+    public List<Segment> Segment;
+    public int StartTailSize;
     public event UnityAction<int> SizeUpdeted;
-    public Game Game;
     public int ScoreCount = 0;
     public int _bestScore = 0;
-
 
 
 
@@ -33,19 +29,6 @@ public class Snake : MonoBehaviour
         SizeUpdeted?.Invoke(Segment.Count);
        _bestScore = PlayerPrefs.GetInt("SaveScore", 0);
         
-
-
-    /*
-        if (PlayerPrefs.HasKey("SaveScore"))
-        {
-            _bestScore = PlayerPrefs.GetInt("SaveScore");
-        }
-
-        if (PlayerPrefs.HasKey("SaveTailSize"))
-        {
-            StartTailSize = PlayerPrefs.GetInt("SaveTailSize");
-        }
-    */
     }
 
     private void Start()

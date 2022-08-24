@@ -4,17 +4,13 @@ using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour
 {
-    public SnakeHead _head;
-    //public Transform FinishPlatform;
-    public Slider Slider;
-    public LevelGeneration levelGeneration;
-    //public float AcceptableFinishPlayerDistance = 1f;
-
+    [SerializeField] private SnakeHead _head;
+    [SerializeField] private Slider Slider;
+    [SerializeField] private LevelGeneration levelGeneration;
     private float _startZ;
     private float _finishZ;
     
 
-    //private float _minimumReachedZ;
 
     private void Awake()
     {

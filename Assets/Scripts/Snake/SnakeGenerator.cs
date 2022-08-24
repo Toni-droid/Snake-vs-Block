@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SnakeGenerator : MonoBehaviour
 {
-    //[SerializeField] private int _snakeSize;
     [SerializeField] private Segment _segmentTemplate;
 
     public List<Segment> Generate(int count)
